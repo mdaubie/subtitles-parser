@@ -4,10 +4,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.DaubieMatthieu</groupId>
+    <groupId>com.github.mdaubie</groupId>
     <artifactId>srt-parser</artifactId>
-    <version>0.0</version>
+    <version>1.0.0-alpha</version>
     <name>SRT Parser</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.24.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
