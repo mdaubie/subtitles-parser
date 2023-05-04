@@ -1,6 +1,6 @@
-package io.github.mdaubie.srtparser;
+package io.github.mdaubie.subtitlesparser;
 
-import io.github.mdaubie.srtparser.model.PatternedObject;
+import io.github.mdaubie.subtitlesparser.model.PatternedObject;
 
 import java.util.HashMap;
 import java.util.regex.Pattern;
