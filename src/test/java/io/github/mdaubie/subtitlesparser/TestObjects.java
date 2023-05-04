@@ -19,7 +19,22 @@ public class TestObjects {
                 LocalTime.of(0, 0, 56, 473 * 1000000),
                 LocalTime.of(0, 0, 58, 266 * 1000000),
                 "This is the second dialogue");
-        public static final Supplier<SubRipFile> object1 = () -> getSubRipFile(sub1.get(), sub2.get());
+        public static final Supplier<SubRipSubtitle> sub3 = () -> getSubRipSubtitle(3,
+                LocalTime.of(0, 0, 57, 908 * 1000000),
+                LocalTime.of(0, 0, 59, 701 * 1000000),
+                "This is the third dialogue");
+        public static final Supplier<SubRipSubtitle> sub3FixedDelay = () -> getSubRipSubtitle(3,
+                LocalTime.of(0, 0, 58, 266 * 1000000),
+                LocalTime.of(0, 0, 59, 701 * 1000000),
+                "This is the third dialogue");
+        public static final Supplier<SubRipSubtitle> sub3FixedMerge = () -> getSubRipSubtitle(2,
+                LocalTime.of(0, 0, 56, 473 * 1000000),
+                LocalTime.of(0, 0, 59, 701 * 1000000),
+                "This is the second dialogue"+System.lineSeparator()+"This is the third dialogue");
+        public static final Supplier<SubRipFile> object1 = () -> getSubRipFile(sub1.get(), sub2.get(), sub3.get());
+        public static final Supplier<SubRipFile> object1FixedDelay = ()->getSubRipFile(sub1.get(), sub2.get(), sub3FixedDelay.get());
+        public static final Supplier<SubRipFile> object2 = () -> getSubRipFile(sub2.get(), sub1.get(), sub3.get());
+        public static final Supplier<SubRipFile> object2FixedMerge = ()->getSubRipFile(sub1.get(), sub3FixedMerge.get());
         public static final String text1 = """
                 1
                 00:00:51,093 --> 00:00:52,635
@@ -28,6 +43,10 @@ public class TestObjects {
                 2
                 00:00:56,473 --> 00:00:58,266
                 This is the second dialogue
+
+                3
+                00:00:57,908 --> 00:00:59,701
+                This is the third dialogue
 
                 """;
 
