@@ -30,6 +30,13 @@ public class Main {
 }
 ```
 
+### Upcoming features
+
+- New subtitles formats: MicroDVD, WebVTT, SSA, ASS
+- New tool: subtitles shifting
+- Format conversion: parse a SubRip file and serialize it as an SSA file to customize it for example
+- Format auto-detection: might be done simply on file extension, or by pattern recognition
+
 ### Related projects
 
 I am working on a web app project to handle my collection of downloaded movies and series, you can find it
