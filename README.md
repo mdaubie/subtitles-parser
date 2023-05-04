@@ -13,6 +13,23 @@ Library for parsing subtitles files using regexes
 - Currently: SubRip
 - Upcoming: MicroDVD, WebVTT, SSA, ASS
 
+### How to use
+
+- Parse your file with the Parser class, you will need the format of the file and its path
+- Apply your changes: for example fix the overlapping subtitles in the file with the dedicated tool
+- Serialize your file back, you will need the format of the file and the path of the new file
+
+```java
+public class Main {
+    public static void main(String[] args) throws IOException {
+        File mySubtitlesFile = new File("path/myFile");
+        SubRipFile parsedFile = new Parser<>(SUB_RIP_FORMAT).parseFile(mySubtitlesFile);
+        FixOverlappingSubtitles.fixOverlapping(parsedFile, FixOverlappingSubtitles.STRATEGY.MERGE);
+        new Serializer<>(SUB_RIP_FORMAT).writeToFile(parsedFile, new File("path/myFileFixed"));
+    }
+}
+```
+
 ### Related projects
 
 I am working on a web app project to handle my collection of downloaded movies and series, you can find it
