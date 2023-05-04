@@ -2,11 +2,11 @@ package io.github.mdaubie.subtitlesparser;
 
 import io.github.mdaubie.subtitlesparser.model.Format;
 import io.github.mdaubie.subtitlesparser.model.SubtitlesFile;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.function.Supplier;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SerializerTest {
     @ParameterizedTest
     @MethodSource("serialize")
-    void serialize(Format<? extends SubtitlesFile> format, SubtitlesFile input, String expectedResult) throws Exception {
-        String actualResult = new Serializer<>(format).serialize(input);
+    void serialize(Format<? extends SubtitlesFile> format, Supplier<SubtitlesFile> input, String expectedResult) throws Exception {
+        String actualResult = new Serializer<>(format).serialize(input.get());
         assertEquals(expectedResult, actualResult);
     }
 
