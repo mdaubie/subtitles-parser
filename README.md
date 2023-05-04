@@ -8,7 +8,10 @@
 
 Library for parsing subtitles files using regexes
 
-Includes a toolbox to perform classic subtitles operations
+### Handled formats
+
+- Currently: SubRip
+- Upcoming: MicroDVD, WebVTT, SSA, ASS
 
 ### Related projects
 
