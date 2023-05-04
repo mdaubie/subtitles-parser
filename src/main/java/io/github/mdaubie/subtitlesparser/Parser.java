@@ -1,8 +1,8 @@
-package io.github.mdaubie.srtparser;
+package io.github.mdaubie.subtitlesparser;
 
-import io.github.mdaubie.srtparser.model.Format;
-import io.github.mdaubie.srtparser.model.PatternedObject;
-import io.github.mdaubie.srtparser.model.SubtitlesFile;
+import io.github.mdaubie.subtitlesparser.model.Format;
+import io.github.mdaubie.subtitlesparser.model.PatternedObject;
+import io.github.mdaubie.subtitlesparser.model.SubtitlesFile;
 
 import java.io.File;
 import java.io.IOException;

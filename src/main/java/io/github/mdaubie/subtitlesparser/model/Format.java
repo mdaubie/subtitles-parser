@@ -1,4 +1,4 @@
-package io.github.mdaubie.srtparser.model;
+package io.github.mdaubie.subtitlesparser.model;
 
 import java.time.format.DateTimeFormatter;
 
