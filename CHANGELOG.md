@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2023-05-04
+### :boom: BREAKING CHANGES
+- due to [`8dddb25`](https://github.com/mdaubie/subtitles-parser/commit/8dddb259d2339fab3649a7f7b88a3fc67dcec627) - add a toolbox, with the FixOverlappingSubtitles tool, including 3 fixing strategies *(commit by [@mdaubie](https://github.com/mdaubie))*:
+
+  add a toolbox, with the FixOverlappingSubtitles tool, including 3 fixing strategies
+
+
+### :sparkles: New Features
+- [`7186bf0`](https://github.com/mdaubie/subtitles-parser/commit/7186bf0484e2f5fdc3fe832f0bcff92a736b349e) - add a serializer, taking a subtitle object as input, and returning, depending on the format, the corresponding file content, directly printable in a file *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`8dddb25`](https://github.com/mdaubie/subtitles-parser/commit/8dddb259d2339fab3649a7f7b88a3fc67dcec627) - add a toolbox, with the FixOverlappingSubtitles tool, including 3 fixing strategies *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+### :recycle: Refactors
+- [`c27e125`](https://github.com/mdaubie/subtitles-parser/commit/c27e12531570737b636e5b4da016927f9acb8fd3) - **test**: move test objects to holder class, so they can be used by all tests *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`639795b`](https://github.com/mdaubie/subtitles-parser/commit/639795b0942cec4f1cb9ad9566a46a4df8b1f31b) - **test**: encapsulate test objects in suppliers, so that tests use same data but different objects, and do not interfere between them *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+### :white_check_mark: Tests
+- [`5c0d1c2`](https://github.com/mdaubie/subtitles-parser/commit/5c0d1c2d8a1029b356d9b7bf23d5c4f694ecc9ce) - add tests on the serializer methods *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+### :memo: Documentation Changes
+- [`3e2c556`](https://github.com/mdaubie/subtitles-parser/commit/3e2c5566d7d55d0152f91cc37c9690727a1b6b21) - add How to use section in README *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`2551c38`](https://github.com/mdaubie/subtitles-parser/commit/2551c38708c2b31b43ae0a3a72df01998ab56838) - add Upcoming features section in README *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+
 ## [0.2.0] - 2023-05-04
 ### :sparkles: New Features
 - [`980909c`](https://github.com/mdaubie/subtitles-parser/commit/980909c03a7a4fc88863ce7c7cba5040f49cd741) - add main timestamp formats *(commit by [@mdaubie](https://github.com/mdaubie))*
@@ -50,3 +73,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.0]: https://github.com/mdaubie/subtitles-parser/compare/0.0.0...0.1.0
 [0.1.1]: https://github.com/mdaubie/subtitles-parser/compare/0.1.0...0.1.1
 [0.2.0]: https://github.com/mdaubie/subtitles-parser/compare/0.1.1...0.2.0
+[1.0.0]: https://github.com/mdaubie/subtitles-parser/compare/0.2.0...1.0.0
