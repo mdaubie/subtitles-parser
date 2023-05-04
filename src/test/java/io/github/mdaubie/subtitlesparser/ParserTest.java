@@ -10,9 +10,10 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.stream.Stream;
+
+import static io.github.mdaubie.subtitlesparser.constants.SUB_FILE_FORMATS.*;
 
 
 class ParserTest {
@@ -47,9 +48,8 @@ class ParserTest {
                     LocalTime.of(0, 0, 58, 266 * 1000000),
                     "(FOOTSTEPS THUDDING)"));
         }};
-        Format<SubRipFile> subRipFormat = new Format<>("SubRip", ".srt", SubRipFile.class, DateTimeFormatter.ofPattern("HH:mm:ss,SSS"));
         return Stream.of(
-                Arguments.of(fileContent, subRipFormat, sf)
+                Arguments.of(fileContent, SUB_RIP_FORMAT, sf)
         );
     }
 
