@@ -1,4 +1,4 @@
-package io.github.mdaubie.srtparser.model;
+package io.github.mdaubie.subtitlesparser.model;
 
 import java.util.List;
 import java.util.regex.Pattern;
