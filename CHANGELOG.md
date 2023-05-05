@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2023-05-05
+### :bug: Bug Fixes
+- [`cd18c3e`](https://github.com/mdaubie/subtitles-parser/commit/cd18c3ebe01e3be6903c650f69d6b09c6cada6e6) - **publish**: downgrade nexus-staging-maven-plugin to more stable 1.6.13 version *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+
 ## [1.0.0] - 2023-05-04
 ### :boom: BREAKING CHANGES
 - due to [`8dddb25`](https://github.com/mdaubie/subtitles-parser/commit/8dddb259d2339fab3649a7f7b88a3fc67dcec627) - add a toolbox, with the FixOverlappingSubtitles tool, including 3 fixing strategies *(commit by [@mdaubie](https://github.com/mdaubie))*:
@@ -74,3 +79,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.1]: https://github.com/mdaubie/subtitles-parser/compare/0.1.0...0.1.1
 [0.2.0]: https://github.com/mdaubie/subtitles-parser/compare/0.1.1...0.2.0
 [1.0.0]: https://github.com/mdaubie/subtitles-parser/compare/0.2.0...1.0.0
+[1.0.1]: https://github.com/mdaubie/subtitles-parser/compare/1.0.0...1.0.1
