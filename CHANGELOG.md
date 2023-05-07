@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2023-05-07
+### :sparkles: New Features
+- [`4c877b5`](https://github.com/mdaubie/subtitles-parser/commit/4c877b53f87d239b9f79c5717a4754082aac239d) - add the shift subtitles tool *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+### :recycle: Refactors
+- [`37c516c`](https://github.com/mdaubie/subtitles-parser/commit/37c516cc702a2938151b233b5ce0d54706a66f48) - use generic types in the relevant Parser and Serializer methods, as to make their use more strict and safe *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`cfcc9b2`](https://github.com/mdaubie/subtitles-parser/commit/cfcc9b2dc94f600f86843bae75a48129b5732ab8) - suppress impossible IllegalAccessException in attribute serialization and use safe cast in list serialization *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+### :memo: Documentation Changes
+- [`93aa85c`](https://github.com/mdaubie/subtitles-parser/commit/93aa85ccb99c4610db2fe1f5783ff0907e571616) - document the serializer and parser classes *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`43fc896`](https://github.com/mdaubie/subtitles-parser/commit/43fc8966268dc4ea23ce9157c1baa9ce6f27fce0) - document the model *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`47a4b7e`](https://github.com/mdaubie/subtitles-parser/commit/47a4b7e3f50aac72bafda605e35d7c246d5121b8) - document the SUB_FILE_FORMATS and the PatternHolder *(commit by [@mdaubie](https://github.com/mdaubie))*
+- [`e9726d6`](https://github.com/mdaubie/subtitles-parser/commit/e9726d6446217e99a9796c64012b3623561ab72a) - add Maven Central badge in README *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+### :art: Code Style Changes
+- [`3c76b81`](https://github.com/mdaubie/subtitles-parser/commit/3c76b81041fec654c9352173eeb0f5d5f7a57ce5) - reorder and center README header *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+
 ## [1.0.1] - 2023-05-05
 ### :bug: Bug Fixes
 - [`cd18c3e`](https://github.com/mdaubie/subtitles-parser/commit/cd18c3ebe01e3be6903c650f69d6b09c6cada6e6) - **publish**: downgrade nexus-staging-maven-plugin to more stable 1.6.13 version *(commit by [@mdaubie](https://github.com/mdaubie))*
@@ -80,3 +98,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.2.0]: https://github.com/mdaubie/subtitles-parser/compare/0.1.1...0.2.0
 [1.0.0]: https://github.com/mdaubie/subtitles-parser/compare/0.2.0...1.0.0
 [1.0.1]: https://github.com/mdaubie/subtitles-parser/compare/1.0.0...1.0.1
+[1.1.0]: https://github.com/mdaubie/subtitles-parser/compare/1.0.1...1.1.0

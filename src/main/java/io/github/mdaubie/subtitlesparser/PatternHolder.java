@@ -5,6 +5,9 @@ import io.github.mdaubie.subtitlesparser.model.PatternedObject;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
+/**
+ * A class registering and distributing the model patterns
+ */
 public class PatternHolder extends HashMap<Class<? extends PatternedObject>, Pattern> {
     private static final PatternHolder instance = new PatternHolder();
 
@@ -12,6 +15,11 @@ public class PatternHolder extends HashMap<Class<? extends PatternedObject>, Pat
         super();
     }
 
+    /**
+     * Map the class of a patterned object to its corresponding pattern
+     * @param patternedObjectClass The class of the patterned object
+     * @return The corresponding pattern
+     */
     public static Pattern getPattern(Class<? extends PatternedObject> patternedObjectClass) {
         if (!instance.containsKey(patternedObjectClass)) {
             try {

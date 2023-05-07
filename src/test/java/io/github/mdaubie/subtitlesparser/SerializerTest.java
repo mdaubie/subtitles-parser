@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SerializerTest {
     @ParameterizedTest
     @MethodSource("serialize")
-    void serialize(Format<? extends SubtitlesFile> format, Supplier<SubtitlesFile> input, String expectedResult) throws Exception {
+    <SF extends SubtitlesFile> void serialize(Format<SF> format, Supplier<SF> input, String expectedResult) throws Exception {
         String actualResult = new Serializer<>(format).serialize(input.get());
         assertEquals(expectedResult, actualResult);
     }
