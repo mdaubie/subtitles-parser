@@ -30,11 +30,24 @@ public class TestObjects {
         public static final Supplier<SubRipSubtitle> sub3FixedMerge = () -> getSubRipSubtitle(2,
                 LocalTime.of(0, 0, 56, 473 * 1000000),
                 LocalTime.of(0, 0, 59, 701 * 1000000),
-                "This is the second dialogue"+System.lineSeparator()+"This is the third dialogue");
+                "This is the second dialogue" + System.lineSeparator() + "This is the third dialogue");
+        public static final Supplier<SubRipSubtitle> sub1Shifted1000 = () -> getSubRipSubtitle(1,
+                LocalTime.of(0, 0, 52, 93 * 1000000),
+                LocalTime.of(0, 0, 53, 635 * 1000000),
+                "This is the first dialogue");
+        public static final Supplier<SubRipSubtitle> sub2Shifted1000 = () -> getSubRipSubtitle(2,
+                LocalTime.of(0, 0, 57, 473 * 1000000),
+                LocalTime.of(0, 0, 59, 266 * 1000000),
+                "This is the second dialogue");
+        public static final Supplier<SubRipSubtitle> sub3Shifted1000 = () -> getSubRipSubtitle(3,
+                LocalTime.of(0, 0, 58, 908 * 1000000),
+                LocalTime.of(0, 1, 0, 701 * 1000000),
+                "This is the third dialogue");
         public static final Supplier<SubRipFile> object1 = () -> getSubRipFile(sub1.get(), sub2.get(), sub3.get());
-        public static final Supplier<SubRipFile> object1FixedDelay = ()->getSubRipFile(sub1.get(), sub2.get(), sub3FixedDelay.get());
+        public static final Supplier<SubRipFile> object1FixedDelay = () -> getSubRipFile(sub1.get(), sub2.get(), sub3FixedDelay.get());
         public static final Supplier<SubRipFile> object2 = () -> getSubRipFile(sub2.get(), sub1.get(), sub3.get());
-        public static final Supplier<SubRipFile> object2FixedMerge = ()->getSubRipFile(sub1.get(), sub3FixedMerge.get());
+        public static final Supplier<SubRipFile> object2FixedMerge = () -> getSubRipFile(sub1.get(), sub3FixedMerge.get());
+        public static final Supplier<SubRipFile> object1Shifted1000 = () -> getSubRipFile(sub1Shifted1000.get(), sub2Shifted1000.get(), sub3Shifted1000.get());
         public static final String text1 = """
                 1
                 00:00:51,093 --> 00:00:52,635
