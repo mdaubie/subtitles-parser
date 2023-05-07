@@ -28,35 +28,40 @@ public record Serializer<SF extends SubtitlesFile>(Format<SF> format) {
 
     private String dynamicSerialize(PatternedObject object) throws UnexpectedException {
         String template = patternToStringTemplate(PatternHolder.getPattern(object.getClass()));
-        try {
-            Class<?> type = object.getClass();
-            for (Field field : type.getFields()) {
-                boolean isAccessible = field.canAccess(object);
-                if (!isAccessible) field.setAccessible(true);
-                template = template.replace(field.getName(), serializeAttribute(object, field));
-                if (!isAccessible) field.setAccessible(false);
-            }
-            return template;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return null;
-        }
+        Class<?> type = object.getClass();
+        for (Field field : type.getFields())
+            template = template.replace(field.getName(), serializeAttribute(object, field));
+        return template;
     }
 
-    private String serializeAttribute(PatternedObject object, Field field) throws UnexpectedException, IllegalAccessException {
+    private String serializeAttribute(PatternedObject patternedObject, Field field) throws UnexpectedException {
         Class<?> type = field.getType();
-        if (type == String.class) return String.valueOf(field.get(object));
-        if (type == Integer.class) return String.valueOf(field.get(object));
-        if (type == LocalTime.class) return ((LocalTime) field.get(object)).format(format.timestampsFormat());
-        if (type == List.class) return serializeList(object, field);
-        throw new UnexpectedException(String.format("Type %s is not handled by Serializer", type));
+        Object fieldObject;
+        try {
+            boolean isAccessible = field.canAccess(patternedObject);
+            if (!isAccessible) field.setAccessible(true);
+            fieldObject = field.get(patternedObject);
+            if (!isAccessible) field.setAccessible(false);
+        } catch (IllegalAccessException e) {
+            throw new UnexpectedException("reflect library failed to make field accessible", e);
+        }
+        if (type == String.class) return String.valueOf(fieldObject);
+        if (type == Integer.class) return String.valueOf(fieldObject);
+        if (type == LocalTime.class) return ((LocalTime) fieldObject).format(format.timestampsFormat());
+        if (type == List.class) return serializeList(fieldObject);
+        throw new UnexpectedException(String.format("Type %s is not handled by serializer when serializing class %s", type, fieldObject.getClass()));
     }
 
-    private String serializeList(Object object, Field field) throws UnexpectedException, IllegalAccessException {
+    private String serializeList(Object object) throws UnexpectedException {
         StringBuilder content = new StringBuilder();
-        List<PatternedObject> list = (List<PatternedObject>) field.get(object);
-        //TODO include primitive objects (non-patterned)
-        for (PatternedObject o : list) content.append(dynamicSerialize(o));
+        List<?> list = (List<?>) object;
+        for (Object o : list) {
+            if (o instanceof PatternedObject)
+                content.append(dynamicSerialize((PatternedObject) o));
+            else
+                //TODO include primitive objects (non-patterned)
+                throw new UnexpectedException(String.format("Unexpected type %s found when serializing list for format %s", object.getClass(), format));
+        }
         return content.toString();
     }
 
