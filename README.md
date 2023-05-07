@@ -5,6 +5,7 @@
 [![checks status](https://github.com/mdaubie/subtitles-parser/actions/workflows/test-all.yml/badge.svg)](https://github.com/mdaubie/subtitles-parser/actions/workflows/test-all.yml)
 [![publish status](https://github.com/mdaubie/subtitles-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/mdaubie/subtitles-parser/actions/workflows/publish.yml)
 [![license](https://img.shields.io/github/license/mdaubie/subtitles-parser)](https://github.com/mdaubie/subtitles-parser/blob/master/LICENSE)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.mdaubie/subtitles-parser/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.mdaubie/subtitles-parser)
 
 Library for parsing subtitles files using regexes
 
