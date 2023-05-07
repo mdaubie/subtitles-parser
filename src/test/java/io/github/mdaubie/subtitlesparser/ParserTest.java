@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ParserTest {
     @ParameterizedTest
     @MethodSource("parse")
-    void parse(Format<? extends SubtitlesFile> format, String text, Supplier<SubtitlesFile> expectedResult) throws Exception {
+    <SF extends SubtitlesFile> void parse(Format<SF> format, String text, Supplier<SF> expectedResult) throws Exception {
         SubtitlesFile actualResult = new Parser<>(format).parse(text);
         assertThat(actualResult).usingRecursiveComparison().isEqualTo(expectedResult.get());
     }
