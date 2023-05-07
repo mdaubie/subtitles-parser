@@ -16,13 +16,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public record Serializer<SF extends SubtitlesFile>(Format<SF> format) {
-    public void writeToFile(SubtitlesFile subtitlesFile, File file) throws IOException {
+    public void writeToFile(SF subtitlesFile, File file) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         writer.append(serialize(subtitlesFile));
         writer.close();
     }
 
-    public String serialize(SubtitlesFile sf) throws UnexpectedException {
+    public String serialize(SF sf) throws UnexpectedException {
         return dynamicSerialize(sf);
     }
 
@@ -43,7 +43,7 @@ public record Serializer<SF extends SubtitlesFile>(Format<SF> format) {
         }
     }
 
-    private String serializeAttribute(Object object, Field field) throws UnexpectedException, IllegalAccessException {
+    private String serializeAttribute(PatternedObject object, Field field) throws UnexpectedException, IllegalAccessException {
         Class<?> type = field.getType();
         if (type == String.class) return String.valueOf(field.get(object));
         if (type == Integer.class) return String.valueOf(field.get(object));

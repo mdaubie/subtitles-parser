@@ -30,7 +30,7 @@ public record Parser<SF extends SubtitlesFile>(Format<SF> format) {
         return dynamicParse(matcher, format.baseClass());
     }
 
-    private <T> T dynamicParse(Matcher matcher, Class<T> type) throws UnexpectedException {
+    private <T extends PatternedObject> T dynamicParse(Matcher matcher, Class<T> type) throws UnexpectedException {
         try {
             T object = type.getConstructor().newInstance();
             for (Field field : type.getFields()) {
@@ -57,13 +57,13 @@ public record Parser<SF extends SubtitlesFile>(Format<SF> format) {
         throw new UnexpectedException(String.format("Type %s is not handled by parser", type));
     }
 
-    private List<Object> parseList(String value, ParameterizedType type) throws UnexpectedException {
+    private <T extends PatternedObject> List<T> parseList(String value, ParameterizedType type) throws UnexpectedException {
         Type elementType = type.getActualTypeArguments()[0];
         //TODO might need to implement basic types handling for some of the formats
-        Class<? extends PatternedObject> elementClass = (Class<? extends PatternedObject>) elementType;
+        @SuppressWarnings("unchecked") Class<T> elementClass = (Class<T>) elementType;
         Pattern pattern = PatternHolder.getPattern(elementClass);
         Matcher matcher = pattern.matcher(value);
-        List<Object> list = new ArrayList<>();
+        List<T> list = new ArrayList<>();
         while (matcher.find())
             list.add(dynamicParse(matcher, elementClass));
         return list;
